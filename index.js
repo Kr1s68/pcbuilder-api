@@ -46,11 +46,11 @@ async function getSpecificPrice(link, items,Price){
         })
 }
 
-app.get('/getItemInfo',async (req,res) => {
+app.get('/api/data/getItemInfo',async (req,res) => {
             res.send(await getPrices(req.query.Item, req.query.Price))
 })
 
-app.post('/createUser',(req,res) => {
+app.post('/api/data/createUser',(req,res) => {
     console.log(req.body)
     
           const email = req.body.email
@@ -74,7 +74,7 @@ app.post('/createUser',(req,res) => {
 
 })
 
-app.post('/createCpu',(req,res) => {
+app.post('/api/data/createCpu',(req,res) => {
     console.log(req.body)
     
           const Model = req.body.Model + ", "
@@ -103,7 +103,7 @@ app.post('/createCpu',(req,res) => {
 
 })
 
-app.post('/createMotherboard',(req,res) => {
+app.post('/api/data/createMotherboard',(req,res) => {
     console.log(req.body)
     
           const Model = req.body.Model + ", "
@@ -131,7 +131,7 @@ app.post('/createMotherboard',(req,res) => {
 
 })
 
-app.post('/createGpu',(req,res) => {
+app.post('/api/data/createGpu',(req,res) => {
     console.log(req.body)
     
           const Model = req.body.Model + ", "
@@ -160,7 +160,7 @@ app.post('/createGpu',(req,res) => {
 
 })
 
-app.post('/createMemory',(req,res) => {
+app.post('/api/data/createMemory',(req,res) => {
     console.log(req.body)
     
           const Model = req.body.Model + ", "
@@ -187,7 +187,7 @@ app.post('/createMemory',(req,res) => {
 
 })
 
-app.post('/createStorage',(req,res) => {
+app.post('/api/data/createStorage',(req,res) => {
     console.log(req.body)
     
           const Model = req.body.Model + ", "
@@ -214,7 +214,7 @@ app.post('/createStorage',(req,res) => {
 
 })
 
-app.post('/createCase',(req,res) => {
+app.post('/api/data/createCase',(req,res) => {
     console.log(req.body)
     
           const Model = req.body.Model + ", "
@@ -241,7 +241,7 @@ app.post('/createCase',(req,res) => {
 
 })
 
-app.post('/createPsu',(req,res) => {
+app.post('/api/data/createPsu',(req,res) => {
     console.log(req.body)
     
           const Model = req.body.Model + ", "
@@ -269,7 +269,7 @@ app.post('/createPsu',(req,res) => {
 
 })
 
-app.post('/createArticle',(req,res) => {
+app.post('/api/data/createArticle',(req,res) => {
     console.log(req.body)
     
           const Introduction = req.body.Introduction
@@ -299,7 +299,7 @@ app.post('/createArticle',(req,res) => {
 
 })
 
-app.post('/checkAdmin',(req,res) => {
+app.post('/api/data/checkAdmin',(req,res) => {
     if(!req.body.email)
         return res.status(400)
 
@@ -313,7 +313,7 @@ app.post('/checkAdmin',(req,res) => {
 
 })
 
-app.post('/saveBuild',(req,res) => {
+app.post('/api/data/saveBuild',(req,res) => {
     console.log(req.body)
     
        const user = req.body.currentBuild.user
@@ -347,7 +347,7 @@ app.post('/saveBuild',(req,res) => {
 })
 
 
-app.post('/deleteBuild',(req,res) => {
+app.post('/api/data/deleteBuild',(req,res) => {
     console.log(req.body)
 
       db.query(
@@ -358,7 +358,7 @@ app.post('/deleteBuild',(req,res) => {
 
 })
 
-app.get('/loadArticle',(req,res) => {
+app.get('/api/data/loadArticle',(req,res) => {
 
     db.query(`SELECT * FROM article WHERE idarticle = "${req.query.id}"`, (err, result) => {
 
@@ -376,7 +376,7 @@ app.get('/loadArticle',(req,res) => {
 
 })
 
-app.get('/loadBuild',(req,res) => {
+app.get('/api/data/loadBuild',(req,res) => {
 
     db.query(`SELECT * FROM savedbuilds WHERE user = "${req.query.email}"`, (err, result) => {
 
@@ -394,7 +394,7 @@ app.get('/loadBuild',(req,res) => {
 
 })
 
-app.get('/PSUS',(req,res) => {
+app.get('/api/data/PSUS',(req,res) => {
 
     db.query("SELECT * FROM psus ORDER BY Price", (err, result) => {
 
@@ -412,7 +412,7 @@ app.get('/PSUS',(req,res) => {
 
 })
 
-app.get('/Cases',(req,res) => {
+app.get('/api/data/Cases',(req,res) => {
 
     db.query("SELECT * FROM cases ORDER BY Price", (err, result) => {
 
@@ -430,7 +430,7 @@ app.get('/Cases',(req,res) => {
 
 })
 
-app.get('/Storage',(req,res) => {
+app.get('/api/data/Storage',(req,res) => {
 
     db.query("SELECT * FROM storage ORDER BY Price", (err, result) => {
 
@@ -448,7 +448,7 @@ app.get('/Storage',(req,res) => {
 
 })
 
-app.get('/Memory',(req,res) => {
+app.get('/api/data/Memory',(req,res) => {
 
     db.query("SELECT * FROM memory ORDER BY Price", (err, result) => {
 
@@ -466,7 +466,7 @@ app.get('/Memory',(req,res) => {
 
 })
 
-app.get('/Cpus',(req,res) => {
+app.get('/api/data/Cpus',(req,res) => {
 
     db.query("SELECT * FROM cpus ORDER BY Price", (err, result) => {
 
@@ -484,7 +484,7 @@ app.get('/Cpus',(req,res) => {
 
 })
 
-app.get('/Motherboards',(req,res) => {
+app.get('/api/data/Motherboards',(req,res) => {
 
     db.query("SELECT * FROM motherboards ORDER BY Price", (err, result) => {
 
@@ -502,7 +502,7 @@ app.get('/Motherboards',(req,res) => {
 
 })
 
-app.get('/Gpus',(req,res) => {
+app.get('/api/data/Gpus',(req,res) => {
 
     db.query("SELECT * FROM gpus ORDER BY Price", (err, result) => {
 
