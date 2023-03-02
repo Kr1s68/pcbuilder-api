@@ -520,8 +520,5 @@ app.get('/Gpus',(req,res) => {
 
 })
 
-const ip = '192.168.1.4'
-
 app.listen(process.env.PORT || PORT, () => {
-    console.log(`server is running on: ${ip}`)
 })
