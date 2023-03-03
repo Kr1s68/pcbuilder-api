@@ -16,7 +16,6 @@ const db = mysql2.createConnection({
     database:'heroku_75f6700d71a5740'
 
 })
-mysql://b08a0a5265b03c:f7c970c8@eu-cdbr-west-03.cleardb.net/heroku_75f6700d71a5740?
 
 
 async function getPrices(ItemModel,Price){
