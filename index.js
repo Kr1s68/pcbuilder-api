@@ -10,12 +10,13 @@ app.use(express.json())
 
 const db = mysql2.createConnection({
 
-    user:'root',
-    host:'localhost',
-    password:'Krisakabg2',
-    database:'builds'
+    user:'b08a0a5265b03c',
+    host:'eu-cdbr-west-03.cleardb.net',
+    password:'f7c970c8',
+    database:'heroku_75f6700d71a5740'
 
 })
+mysql://b08a0a5265b03c:f7c970c8@eu-cdbr-west-03.cleardb.net/heroku_75f6700d71a5740?
 
 
 async function getPrices(ItemModel,Price){
