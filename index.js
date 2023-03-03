@@ -8,7 +8,7 @@ const cheerio = require('cheerio');
 app.use(cors())
 app.use(express.json())
 
-const db = mysql2.createConnection({
+const db = mysql2.createPool({
 
     user:'b08a0a5265b03c',
     host:'eu-cdbr-west-03.cleardb.net',
