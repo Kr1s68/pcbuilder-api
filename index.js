@@ -17,6 +17,7 @@ const db = mysql2.createConnection({
 
 })
 
+/*
 async function getPrices(ItemModel,Price){
     //console.log(ItemModel)
     let items = [{}]
@@ -44,7 +45,8 @@ async function getSpecificPrice(link, items,Price){
                 }
                 
         })
-}
+}*/
+
 
 app.get('/api/data/getItemInfo',async (req,res) => {
             res.send(await getPrices(req.query.Item, req.query.Price))
