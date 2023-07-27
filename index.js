@@ -4,17 +4,18 @@ const mysql2 = require('mysql2')
 const cors = require('cors')
 const axios = require('axios');
 const cheerio = require('cheerio');
+const Pool = require('pg').Pool
+
 
 app.use(cors())
 app.use(express.json())
 
-const db = mysql2.createPool({
-
-    user:'b08a0a5265b03c',
-    host:'eu-cdbr-west-03.cleardb.net',
-    password:'f7c970c8',
-    database:'heroku_75f6700d71a5740'
-
+const db = new Pool({
+  user: 'yhxlvflz',
+  host: 'snuffleupagus.db.elephantsql.com',
+  database: 'yhxlvflz',
+  password: 'Cpz6Nn8b5wTYqY6So9Q18Hn1FAvcMzLQ',
+  port: 5432,
 })
 
 
@@ -49,7 +50,12 @@ async function getSpecificPrice(link, items,Price){
 
 
 app.get('/api/data/getItemInfo',async (req,res) => {
-            res.send(await getPrices(req.query.Item, req.query.Price))
+    try{
+        res.send(await getPrices(req.query.Item, req.query.Price))
+
+    }catch(err){
+        console.log(err)
+    }
 })
 
 app.post('/api/data/createUser',(req,res) => {
@@ -362,7 +368,7 @@ app.post('/api/data/deleteBuild',(req,res) => {
 
 app.get('/api/data/loadArticle',(req,res) => {
 
-    db.query(`SELECT * FROM article WHERE idarticle = "${req.query.id}"`, (err, result) => {
+    db.query(`SELECT * FROM article WHERE idarticle = ${req.query.id}`, (err, result) => {
 
         if(err){
 
