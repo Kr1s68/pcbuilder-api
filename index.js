@@ -10,7 +10,14 @@ app.use(cors());
 app.use(express.json());
 
 const db = new Pool({
-  connectionString: process.env.POSTGRES_URL + "?sslmode=require",
+  user: "default",
+  host: "ep-fragrant-sound-97498497-pooler.eu-central-1.postgres.vercel-storage.com",
+  database: "verceldb",
+  password: "CSPUYFiDsk58",
+  port: 5432,
+  ssl: {
+    mode: "require",
+  },
 });
 
 async function getPrices(ItemModel, Price) {
